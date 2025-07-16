@@ -61,12 +61,20 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json(clinic, { status: 201 })
-  } catch (error: any) {
+return NextResponse.json(clinic, { status: 201 })
+} catch (error: unknown) {
+  if (error instanceof Error) {
     console.error('POST-feil:', error.message, error)
     return NextResponse.json(
       { error: error.message ?? 'Kunne ikke opprette klinikk' },
       { status: 500 }
     )
   }
+
+  console.error('POST-feil: ukjent feil', error)
+  return NextResponse.json(
+    { error: 'Kunne ikke opprette klinikk (ukjent feil)' },
+    { status: 500 }
+  )
+}
 }
