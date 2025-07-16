@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ProsPage() {
   return (
-    <main className="min-h-screen bg-[#e6f0fa] text-[#1a237e] px-4 py-10">
+    <main className="min-h-screen bg-[#e6f0fa] text-blue-400 px-4 py-10">
       <section className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow">
         <h1 className="text-3xl text-center mb-10">Hva er fordelene?</h1>
         
@@ -59,7 +59,7 @@ export default function ProsPage() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link href="/" className="text-blue-600 hover:underline">
+          <Link href="/" className="text-blue-400 hover:underline">
             ← Tilbake til forsiden
           </Link>
         </div>

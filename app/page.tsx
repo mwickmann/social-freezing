@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Image from 'next/image'
+
 
 export default function HomePage() {
   return (
@@ -9,11 +11,15 @@ export default function HomePage() {
 <section className="relative max-w-7xl mx-auto mb-20 px-6 py-10">
   {/* Bilde i bakgrunnen */}
   <div className="relative h-[600px] md:h-[700px] w-full rounded-xl overflow-hidden shadow-lg">
-    <img
-      src="/images/10.png"
-      alt="Eggfrysning illustrasjon"
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+   <Image
+  src="/images/10.png"
+  alt="Eggfrysning illustrasjon"
+  fill
+  priority
+  className="object-cover"
+  sizes="100vw"
+/>
+
 
 {/* Tekst over bildet */}
 <div className="absolute inset-0 flex flex-col justify-start items-start px-8 md:px-16 pt-30 md:pt-80">
@@ -47,11 +53,16 @@ export default function HomePage() {
         href={item.href}
         className="block bg-blue-50 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition"
       >
-        <img
-          src={item.image}
-          alt={item.title}
-          className="mx-auto w-full h-52 object-cover rounded-lg mb-4"
-        />
+        <div className="relative w-full h-52 mb-4">
+  <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    className="object-cover rounded-lg"
+    sizes="(max-width: 768px) 100vw, 33vw"
+  />
+</div>
+
         <h3 className="text-xl mb-2">{item.title}</h3>
         <p className="text-sm text-gray-700 mb-3">Social Freezing er din digitale eggbank.</p>
         <span className="text-gray-400">Les mer</span>
@@ -66,21 +77,25 @@ export default function HomePage() {
       <section className="bg-white py-14 px-8 mb-20 rounded-2xl max-w-6xl mx-auto shadow">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-2/3">
-            <h2 className="text-3xl mb-4">Gi en gave til din egen fremtid</h2>
+            <h2 className="text-3xl mb-4">Gi en gave til din egen fremtid!</h2>
             <p className="text-gray-700 text-lg">
-              Schedule a consultation with one of our experienced fertility nurses.
+              Hos oss garanterer vi en trygg opplevelse, og vi har høy kvalitet på alle våre ansatte.
             </p>
           </div>
-          <img
-            src="/images/4.png"
-            alt="Gift choice"
-            className="h-44 w-auto rounded-xl object-cover shadow"
-          />
+          <div className="relative h-44 w-64">
+  <Image
+    src="/images/4.png"
+    alt="Gift choice"
+    fill
+    className="rounded-xl object-cover shadow"
+  />
+</div>
+
         </div>
       </section>
 
       {/* Most Common Questions */}
-      <section className="max-w-6xl mx-auto mb-20 bg-white p-10 rounded-2xl shadow">
+      <section className="max-w-7xl mx-auto mb-20 bg-white p-10 rounded-2xl shadow">
         <h2 className="text-3xl text-center mb-12">Ofte stilte spørsmål</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {[
@@ -104,15 +119,15 @@ export default function HomePage() {
 
       {/* CTA Footer */}
       <section className="text-center mt-24">
-        <h2 className="text-3xl font-bold mb-4">Talk to a Nurse</h2>
-        <p className="text-gray-700 text-lg mb-6">
-          Book a 1:1 session with an expert and get your questions answered.
+        <h2 className="text-3xl mb-4">Lurer du på noe?</h2>
+        <p className="text-gray-700 text-m mb-6">
+          Henvend deg til oss nedenfor via vårt kontaktskjema, en av våre sykepleiere kontakter deg innen 24-48 timer.
         </p>
         <Link
           href="/contact"
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+          className="inline-block bg-blue-400 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition"
         >
-          Book Now
+          Gå til kontaktskjema
         </Link>
       </section>
     </main>
