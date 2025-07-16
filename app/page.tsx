@@ -1,103 +1,121 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import Link from 'next/link'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Carousel } from 'react-responsive-carousel'
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-[#ffffff] text-blue-400 px-4 py-10">
+<section className="relative max-w-7xl mx-auto mb-20 px-6 py-10">
+  {/* Bilde i bakgrunnen */}
+  <div className="relative h-[600px] md:h-[700px] w-full rounded-xl overflow-hidden shadow-lg">
+    <img
+      src="/images/10.png"
+      alt="Eggfrysning illustrasjon"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+{/* Tekst over bildet */}
+<div className="absolute inset-0 flex flex-col justify-start items-start px-8 md:px-16 pt-30 md:pt-80">
+  <h1 className="text-3xl md:text-3xl text-gray-500 mb-4">
+    Velkommen til din digitale eggbank!
+  </h1>
+  <p className="text-lg md:text-m text-gray-500 mb-6 max-w-xl">
+    Ta kontroll over egen fertilitet – få innsikt, finn klinikker og lær mer om eggfrysning.
+  </p>
+  <Link
+    href="/signup"
+    className="inline-block bg-white text-gray-400 px-6 py-3 rounded-full hover:bg-blue-100 transition"
+  >
+    Kom i gang
+  </Link>
+</div>
+
+  </div>
+</section>
+
+<section className="max-w-7xl mx-auto mb-20 bg-white p-10 rounded-2xl shadow">
+  <h2 className="text-3xl text-center mb-12">Informasjon</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {[
+      { title: 'Hva er Social Freezing?', image: '/images/4.png', href: '/info' },
+      { title: 'Fordeler & Ulemper', image: '/images/5.png', href: '/pros' },
+      { title: 'Hvor kan man finne klinikker?', image: '/images/6.png', href: '/clinics' },
+    ].map((item, i) => (
+      <Link
+        key={i}
+        href={item.href}
+        className="block bg-blue-50 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition"
+      >
+        <img
+          src={item.image}
+          alt={item.title}
+          className="mx-auto w-full h-52 object-cover rounded-lg mb-4"
+        />
+        <h3 className="text-xl mb-2">{item.title}</h3>
+        <p className="text-sm text-gray-700 mb-3">Social Freezing er din digitale eggbank.</p>
+        <span className="text-gray-400">Les mer</span>
+      </Link>
+    ))}
+  </div>
+</section>
+
+
+
+      {/* Gift Yourself Section */}
+      <section className="bg-white py-14 px-8 mb-20 rounded-2xl max-w-6xl mx-auto shadow">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="md:w-2/3">
+            <h2 className="text-3xl mb-4">Gi en gave til din egen fremtid</h2>
+            <p className="text-gray-700 text-lg">
+              Schedule a consultation with one of our experienced fertility nurses.
+            </p>
+          </div>
+          <img
+            src="/images/4.png"
+            alt="Gift choice"
+            className="h-44 w-auto rounded-xl object-cover shadow"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* Most Common Questions */}
+      <section className="max-w-6xl mx-auto mb-20 bg-white p-10 rounded-2xl shadow">
+        <h2 className="text-3xl text-center mb-12">Ofte stilte spørsmål</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {[
+            { title: 'Vitusminum', image: '/images/7.png' },
+            { title: 'Merion ipsum', image: '/images/8.png' },
+            { title: 'Cae fe ausum', image: '/images/women.png' },
+          ].map((item, i) => (
+            <div key={i} className="bg-blue-50 p-6 rounded-xl text-center shadow-sm hover:shadow-md transition">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="mx-auto w-full h-40 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-700 mb-3">Lorem ipsum dolor sit amet.</p>
+              <a href="#" className="text-gray-400 font-medium underline">Les mer</a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Footer */}
+      <section className="text-center mt-24">
+        <h2 className="text-3xl font-bold mb-4">Talk to a Nurse</h2>
+        <p className="text-gray-700 text-lg mb-6">
+          Book a 1:1 session with an expert and get your questions answered.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          Book Now
+        </Link>
+      </section>
+    </main>
+  )
 }
