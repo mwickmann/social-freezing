@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 
+// GET: Hent én klinikk
 export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
@@ -17,12 +18,12 @@ export async function GET(
     }
 
     return NextResponse.json(clinic)
-  } catch (error) {
-    console.error('GET-feil:', error)
+  } catch (err) {
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
 }
 
+// DELETE: Slett én klinikk
 export async function DELETE(
   req: NextRequest,
   context: { params: { id: string } }
@@ -35,8 +36,7 @@ export async function DELETE(
     })
 
     return NextResponse.json(deletedClinic, { status: 200 })
-  } catch (error) {
-    console.error('DELETE-feil:', error)
+  } catch (err) {
     return NextResponse.json(
       { error: 'Klinikk ikke funnet eller kunne ikke slettes' },
       { status: 404 }
