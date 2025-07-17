@@ -2,13 +2,23 @@
 
 import { useEffect, useState } from 'react'
 
+interface Clinic {
+  id: string
+  name: string
+  location: string
+  price: number
+  website?: string
+  imageUrl?: string
+  createdAt: string
+}
+
 interface ClinicModalProps {
   clinicId: string
   onClose: () => void
 }
 
 export default function ClinicModal({ clinicId, onClose }: ClinicModalProps) {
-  const [clinic, setClinic] = useState<any>(null)
+  const [clinic, setClinic] = useState<Clinic | null>(null)
 
   useEffect(() => {
     const fetchClinic = async () => {
