@@ -2,12 +2,14 @@ import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
+  const clinicId = context.params.id
+
   try {
     const clinic = await prisma.clinic.findUnique({
-      where: { id: params.id },
+      where: { id: clinicId },
     })
 
     if (!clinic) {
@@ -22,12 +24,14 @@ export async function GET(
 }
 
 export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
+  const clinicId = context.params.id
+
   try {
     const deletedClinic = await prisma.clinic.delete({
-      where: { id: params.id },
+      where: { id: clinicId },
     })
 
     return NextResponse.json(deletedClinic, { status: 200 })
