@@ -1,12 +1,13 @@
 import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
-  const clinicId = context.params.id
-
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     const clinic = await prisma.clinic.findUnique({
-      where: { id: clinicId },
+      where: { id: params.id },
     })
 
     if (!clinic) {
@@ -15,6 +16,7 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
 
     return NextResponse.json(clinic)
   } catch (error) {
+    console.error('GET-feil:', error)
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
 }
