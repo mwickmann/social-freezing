@@ -19,6 +19,7 @@ export async function GET(
 
     return NextResponse.json(clinic)
   } catch (err) {
+      console.error('GET-feil:', err) 
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
 }
@@ -37,6 +38,7 @@ export async function DELETE(
 
     return NextResponse.json(deletedClinic, { status: 200 })
   } catch (err) {
+      console.error('DELETE-feil:', err)
     return NextResponse.json(
       { error: 'Klinikk ikke funnet eller kunne ikke slettes' },
       { status: 404 }
