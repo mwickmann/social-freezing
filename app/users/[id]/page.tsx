@@ -7,7 +7,7 @@ interface User {
   id: string
   email: string
   createdAt: string
-  eggCount?: number // legg gjerne til dette i databasen hvis det ikke finnes ennå
+  eggCount?: number 
 }
 
 export default function UserPage() {
@@ -31,17 +31,15 @@ export default function UserPage() {
 
   return (
     <main className="min-h-screen bg-[#d5edfa]">
-      {/* Header med ikon */}
-      <div className="bg-[#c7e5f5] py-12 flex justify-center relative">
-        <img src="/egg-icon.png" alt="Egg" className="w-16 h-16" />
-      </div>
 
       {/* Innhold */}
       <section className="bg-white rounded-t-3xl px-6 py-8 -mt-6">
+
         <h1 className="text-3xl font-bold mb-4">Mine egg</h1>
         <p className="text-lg font-medium mb-8">
-          Du har <strong>{user.eggCount ?? 10}</strong> egg i banken din
+          Du har <strong>{user.eggCount ?? 0}</strong> egg i banken din
         </p>
+        <h2 className="text-lg text-gray-600 mb-2">Velkommen, <span className="font-semibold text-gray-800">{user.email}</span></h2>
 
         {/* Valg */}
         <div className="mb-6">
@@ -60,6 +58,18 @@ export default function UserPage() {
             <Option title="Din neste faktura" />
           </div>
         </div>
+        <div className="mt-10 text-center">
+  <button
+    onClick={() => {
+      localStorage.removeItem('userId')
+      window.location.href = '/'
+    }}
+    className="text-blue-400 hover:underline text-sm"
+  >
+    Logg ut
+  </button>
+</div>
+
       </section>
     </main>
   )

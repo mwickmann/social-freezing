@@ -77,3 +77,19 @@ return NextResponse.json(clinic, { status: 201 })
   )
 }
 }
+
+export async function DELETE(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const deletedClinic = await prisma.clinic.delete({
+      where: { id: params.id },
+    })
+
+    return NextResponse.json(deletedClinic)
+  } catch (error) {
+    console.error('DELETE-feil:', error)
+    return NextResponse.json({ error: 'Klinikk ikke funnet eller kunne ikke slettes' }, { status: 500 })
+  }
+}

@@ -71,8 +71,6 @@ export default function HomePage() {
   </div>
 </section>
 
-
-
       {/* Gift Yourself Section */}
       <section className="bg-white py-14 px-8 mb-20 rounded-2xl max-w-6xl mx-auto shadow">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">

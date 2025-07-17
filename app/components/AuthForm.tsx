@@ -11,17 +11,23 @@ export default function AuthForm({ mode }: AuthFormProps) {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    const body =
+      mode === 'signup'
+        ? { email, password, name }
+        : { email, password }
 
     const endpoint = mode === 'signup' ? '/api/users' : '/api/login'
 
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(body),
     })
 
     const data = await res.json()
@@ -31,17 +37,32 @@ export default function AuthForm({ mode }: AuthFormProps) {
       return
     }
 
-    // Hvis OK – send videre til profilsiden
+    localStorage.setItem('userId', data.id)
     router.push(`/users/${data.id}`)
+    window.location.reload()
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4">
-      <h2 className="text-2xl font-bold text-center">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4"
+    >
+      <h2 className="text-2xl text-center">
         {mode === 'signup' ? 'Opprett konto' : 'Logg inn'}
       </h2>
 
       {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
+      {mode === 'signup' && (
+        <input
+          type="text"
+          placeholder="Navn"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="w-full px-4 py-2 border rounded"
+        />
+      )}
 
       <input
         type="email"
@@ -67,6 +88,24 @@ export default function AuthForm({ mode }: AuthFormProps) {
       >
         {mode === 'signup' ? 'Registrer deg' : 'Logg inn'}
       </button>
+
+      <div className="mt-4 text-center text-sm text-gray-600">
+        {mode === 'signup' ? (
+          <>
+            Allerede bruker?{' '}
+            <a href="/login" className="text-blue-400 hover:underline">
+              Logg inn
+            </a>
+          </>
+        ) : (
+          <>
+            Har du ikke en konto?{' '}
+            <a href="/signup" className="text-blue-400 hover:underline">
+              Registrer deg
+            </a>
+          </>
+        )}
+      </div>
     </form>
   )
 }
