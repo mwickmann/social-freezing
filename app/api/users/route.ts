@@ -7,6 +7,7 @@ export async function GET() {
     select: {
       id: true,
       email: true,
+      name: true,
       createdAt: true,
     },
   })
@@ -14,9 +15,9 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json()
+  const { email, password, name } = await req.json()
 
-  if (!email || !password) {
+  if (!email || !password || !name) {
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
   }
 
@@ -31,11 +32,12 @@ export async function POST(req: NextRequest) {
     data: {
       email,
       password: hashedPassword,
+      name,
     },
   })
 
   return NextResponse.json(
-    { id: newUser.id, email: newUser.email, createdAt: newUser.createdAt },
+    { id: newUser.id, email: newUser.email, createdAt: newUser.createdAt, name: newUser.name},
     { status: 201 }
   )
 }
