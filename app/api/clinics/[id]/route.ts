@@ -1,16 +1,16 @@
-import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
 
-// GET: Hent én klinikk
-export async function GET(
-  req: NextRequest,
-  context: { params: { id: string } }
-) {
-  const clinicId = context.params.id
+export async function GET(req: NextRequest) {
+  const id = req.nextUrl.pathname.split('/').pop() // henter ut ID fra URL
+
+  if (!id) {
+    return NextResponse.json({ error: 'Ingen ID angitt' }, { status: 400 })
+  }
 
   try {
     const clinic = await prisma.clinic.findUnique({
-      where: { id: clinicId },
+      where: { id },
     })
 
     if (!clinic) {
@@ -18,30 +18,25 @@ export async function GET(
     }
 
     return NextResponse.json(clinic)
-  } catch (err) {
-      console.error('GET-feil:', err) 
+  } catch (error) {
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
 }
 
-// DELETE: Slett én klinikk
-export async function DELETE(
-  req: NextRequest,
-  context: { params: { id: string } }
-) {
-  const clinicId = context.params.id
+export async function DELETE(req: NextRequest) {
+  const id = req.nextUrl.pathname.split('/').pop()
+
+  if (!id) {
+    return NextResponse.json({ error: 'Ingen ID angitt' }, { status: 400 })
+  }
 
   try {
     const deletedClinic = await prisma.clinic.delete({
-      where: { id: clinicId },
+      where: { id },
     })
 
-    return NextResponse.json(deletedClinic, { status: 200 })
-  } catch (err) {
-      console.error('DELETE-feil:', err)
-    return NextResponse.json(
-      { error: 'Klinikk ikke funnet eller kunne ikke slettes' },
-      { status: 404 }
-    )
+    return NextResponse.json(deletedClinic)
+  } catch (error) {
+    return NextResponse.json({ error: 'Kunne ikke slette klinikken' }, { status: 500 })
   }
 }
