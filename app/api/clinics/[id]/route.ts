@@ -19,9 +19,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(clinic)
   } catch (error) {
+   console.error('Feil ved henting av klinikk:', error)}
+
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
-}
 
 export async function DELETE(req: NextRequest) {
   const id = req.nextUrl.pathname.split('/').pop()
@@ -36,7 +37,8 @@ export async function DELETE(req: NextRequest) {
     })
 
     return NextResponse.json(deletedClinic)
-  } catch (error) {
+  } catch (error) { 
+    console.error('Feil ved sletting av klinikk:', error)}
+
     return NextResponse.json({ error: 'Kunne ikke slette klinikken' }, { status: 500 })
   }
-}
