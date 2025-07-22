@@ -4,6 +4,8 @@ import { ReactNode } from 'react'
 import { Quicksand } from 'next/font/google'
 import type { Metadata } from 'next'
 import Navbar from './components/Navbar'
+import HamburgerMenu from './components/HamburgerMenu'
+
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -22,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-screen flex-col bg-[#ffffff] text-[#afb1ce] font-heading">
       <header className="sticky top-0 z-50 bg-[#ffffff]">
   <Navbar /> 
+  <HamburgerMenu />
 </header>
 
         {/* MAIN CONTENT */}
