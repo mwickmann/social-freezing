@@ -13,10 +13,12 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between items-center w-full">
-      {/* Logo */}
-      <Link href="/" className="text-2xl tracking-tight text-blue-400">
-        Social Freezing
-      </Link>
+      <div className="mr-6">
+  <Link href="/" className="text-2xl tracking-tight text-blue-400 whitespace-nowrap">
+    Social Freezing
+  </Link>
+</div>
+
 
       {/* Desktop meny */}
       <ul className="hidden md:flex gap-8 items-center font-medium text-sm">
