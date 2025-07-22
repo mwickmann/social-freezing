@@ -24,18 +24,19 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
     const endpoint = mode === 'signup' ? '/api/users' : '/api/login'
 
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    })
+  const res = await fetch(endpoint, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(body),
+})
 
-    const data = await res.json()
+const data = await res.json().catch(() => ({ error: 'Ugyldig svar fra server' }))
 
-    if (!res.ok) {
-      setError(data.error || 'Noe gikk galt')
-      return
-    }
+if (!res.ok) {
+  console.error('Feilstatus:', res.status, 'Feilmelding:', data.error)
+  setError(data.error || 'Noe gikk galt')
+  return
+}
 
     localStorage.setItem('userId', data.id)
     router.push(`/users/${data.id}`)
