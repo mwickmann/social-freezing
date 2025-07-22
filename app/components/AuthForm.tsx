@@ -84,7 +84,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+        className="w-full bg-blue-400 text-white py-2 rounded-full hover:bg-blue-600 transition"
       >
         {mode === 'signup' ? 'Registrer deg' : 'Logg inn'}
       </button>
