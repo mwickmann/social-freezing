@@ -24,10 +24,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(user)
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : 'Ukjent feil'
-    console.error('Feil i GET /api/users/[id]:', message)
-    return NextResponse.json({ error: message }, { status: 500 })
-  }
+  console.error('Feil i GET /api/users:', error)
+  return NextResponse.json({ error: 'Serverfeil', details: error }, { status: 500 })
+}
+
 }
 
 
