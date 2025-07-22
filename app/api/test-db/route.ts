@@ -5,7 +5,11 @@ export async function GET() {
   try {
     const users = await prisma.user.findMany({ take: 1 })
     return NextResponse.json({ success: true, users })
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 })
+  } catch (error: unknown) {
+  if (error instanceof Error) {
+    return NextResponse.json({ ok: false, error: error.message }, { status: 500 })
   }
+  return NextResponse.json({ ok: false, error: 'Ukjent feil' }, { status: 500 })
+}
+
 }
