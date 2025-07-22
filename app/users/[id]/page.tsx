@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation'
 interface User {
   id: string
   email: string
+  name: string
   createdAt: string
   eggCount?: number 
 }
@@ -39,7 +40,7 @@ export default function UserPage() {
         <p className="text-lg font-medium mb-8">
           Du har <strong>{user.eggCount ?? 0}</strong> egg i banken din
         </p>
-        <h2 className="text-lg text-gray-600 mb-2">Velkommen, <span className="font-semibold text-gray-800">{user.email}</span></h2>
+        <h2 className="text-lg text-gray-600 mb-2">Velkommen, <span className="font-semibold text-gray-800">{user.name}</span></h2>
 
         {/* Valg */}
         <div className="mb-6">
