@@ -12,17 +12,17 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
+    <nav className="flex justify-between items-center w-full">
+      {/* Logo */}
+      <Link href="/" className="text-2xl tracking-tight text-blue-400">
+        Social Freezing
+      </Link>
+
+      {/* Desktop meny */}
       <ul className="hidden md:flex gap-8 items-center font-medium text-sm">
-        <li>
-          <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
-        </li>
-        <li>
-          <Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link>
-        </li>
-        <li>
-          <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
-        </li>
+        <li><Link href="/" className="hover:underline underline-offset-4">HJEM</Link></li>
+        <li><Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link></li>
+        <li><Link href="/about" className="hover:underline underline-offset-4">OM</Link></li>
         <li>
           {userId ? (
             <Link
