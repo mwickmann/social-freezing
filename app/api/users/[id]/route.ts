@@ -26,11 +26,12 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ id: newUser.id }, { status: 201 })
-  } catch (error) {
-    console.error('SERVER ERROR /api/users POST:', error)
+  } catch (error: any) {
+    console.error('FEIL I POST /api/users:', error)
     return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
   }
 }
+
 
 
 export async function GET() {
