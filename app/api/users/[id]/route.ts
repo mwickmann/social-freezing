@@ -1,49 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import bcrypt from 'bcryptjs'
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const { email, password, name } = await req.json()
-
-    if (!email || !password || !name) {
-      return NextResponse.json({ error: 'Alle felt er påkrevd.' }, { status: 400 })
-    }
-
-    const existingUser = await prisma.user.findUnique({ where: { email } })
-    if (existingUser) {
-      return NextResponse.json({ error: 'E-posten er allerede i bruk.' }, { status: 409 })
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
-    const newUser = await prisma.user.create({
-      data: {
-        email,
-        name,
-        password: hashedPassword,
+    const user = await prisma.user.findUnique({
+      where: { id: params.id },
+      select: {
+        id: true,
+        email: true,
+        createdAt: true,
+        eggCount: true,
       },
     })
 
-    return NextResponse.json({ id: newUser.id }, { status: 201 })
-  }catch (error: unknown) {
-  console.error('FEIL I POST /api/users:', error instanceof Error ? error.message : error)
-  return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
-}
+    if (!user) {
+      return NextResponse.json({ error: 'Bruker ikke funnet' }, { status: 404 })
+    }
 
-}
-
-
-
-export async function GET() {
-  const users = await prisma.user.findMany({
-    select: {
-      id: true,
-      email: true,
-      name: true,
-      createdAt: true,
-    },
-  })
-
-  return NextResponse.json(users)
+    return NextResponse.json(user)
+  } catch (error: any) {
+    console.error('Feil i GET /api/users/[id]:', error)
+    return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
+  }
 }
