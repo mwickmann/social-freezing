@@ -18,8 +18,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     }
 
     return NextResponse.json(user)
-  } catch (error: any) {
-    console.error('Feil i GET /api/users/[id]:', error)
-    return NextResponse.json({ error: 'Serverfeil' }, { status: 500 })
-  }
+  } catch (error: unknown) {
+  const message = error instanceof Error ? error.message : 'Ukjent feil'
+  console.error('Feil i API:', message)
+  return NextResponse.json({ error: message }, { status: 500 })
+}
+
 }
