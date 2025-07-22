@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest) {
+  const id = req.nextUrl.pathname.split('/').pop()
+  if (!id) {
+    return NextResponse.json({ error: 'Ingen ID angitt' }, { status: 400 })
+  }
+
   try {
     const user = await prisma.user.findUnique({
-      where: { id: params.id },
+      where: { id },
       select: {
         id: true,
         email: true,
@@ -19,9 +24,10 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     return NextResponse.json(user)
   } catch (error: unknown) {
-  const message = error instanceof Error ? error.message : 'Ukjent feil'
-  console.error('Feil i API:', message)
-  return NextResponse.json({ error: message }, { status: 500 })
+    const message = error instanceof Error ? error.message : 'Ukjent feil'
+    console.error('Feil i GET /api/users/[id]:', message)
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }
 
-}
+
