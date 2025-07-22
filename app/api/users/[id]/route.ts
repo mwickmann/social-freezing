@@ -13,6 +13,7 @@ export async function GET(req: NextRequest) {
       select: {
         id: true,
         email: true,
+        name: true,
         createdAt: true,
         eggCount: true,
       },
