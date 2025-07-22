@@ -13,9 +13,6 @@ export default function Navbar() {
 
   return (
     <nav className="mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
-      <Link href="/" className="text-2xl tracking-tight text-blue-400">
-        Social Freezing
-      </Link>
       <ul className="hidden md:flex gap-8 items-center font-medium text-sm">
         <li>
           <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
