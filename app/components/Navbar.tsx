@@ -12,19 +12,23 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="flex justify-between items-center w-full">
-      <div className="mr-6">
-  <Link href="/" className="text-2xl tracking-tight text-blue-400 whitespace-nowrap">
-    Social Freezing
-  </Link>
-</div>
+    <nav className="w-full flex items-center justify-between">
+      {/* Logo (venstre) */}
+      <Link href="/" className="text-2xl tracking-tight text-blue-400 whitespace-nowrap">
+        Social Freezing
+      </Link>
 
-
-      {/* Desktop meny */}
-      <ul className="hidden md:flex gap-8 items-center font-medium text-sm">
-        <li><Link href="/" className="hover:underline underline-offset-4">HJEM</Link></li>
-        <li><Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link></li>
-        <li><Link href="/about" className="hover:underline underline-offset-4">OM</Link></li>
+      {/* Menyvalg (høyre) */}
+      <ul className="hidden md:flex gap-8 items-center font-medium text-sm text-[#afb1ce]">
+        <li>
+          <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
+        </li>
+        <li>
+          <Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link>
+        </li>
+        <li>
+          <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
+        </li>
         <li>
           {userId ? (
             <Link
