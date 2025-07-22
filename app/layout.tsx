@@ -22,9 +22,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="no" className={quicksand.variable}>
       <body className="flex min-h-screen flex-col bg-[#ffffff] text-[#afb1ce] font-heading">
-      <header className="sticky top-0 z-50 bg-[#ffffff]">
-  <Navbar /> 
-  <HamburgerMenu />
+     <header className="sticky top-0 z-50 bg-white shadow-sm">
+  <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <div className="text-2xl tracking-tight text-blue-400">
+      <Link href="/">Social Freezing</Link>
+    </div>
+
+    {/* Desktop meny */}
+    <div className="hidden md:block">
+      <Navbar />
+    </div>
+
+    {/* Mobilmeny */}
+    <div className="md:hidden">
+      <HamburgerMenu />
+    </div>
+  </div>
 </header>
 
         {/* MAIN CONTENT */}
