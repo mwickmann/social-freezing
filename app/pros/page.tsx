@@ -53,22 +53,22 @@ export default function ProsPage() {
           {[
             {
               title: 'Kostbart',
-              image: '/images/ulempe1.png',
+              image: '/images/2.png',
               text: 'Prosessen kan være dyr og ikke alltid dekket av det offentlige.',
             },
             {
               title: 'Ingen garanti',
-              image: '/images/ulempe2.png',
+              image: '/images/8.png',
               text: 'Det er ingen garanti for at eggene fører til graviditet senere.',
             },
             {
               title: 'Krevende behandling',
-              image: '/images/ulempe3.png',
+              image: '/images/6.png',
               text: 'Hormonsprøyter og egguttak kan være fysisk og psykisk krevende.',
             },
             {
               title: 'Aldersbegrensning',
-              image: '/images/ulempe4.png',
+              image: '/images/3.png',
               text: 'Man må gjennomføre innsetting før en viss alder.',
             },
           ].map((item, i) => (

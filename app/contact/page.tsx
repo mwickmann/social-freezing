@@ -30,7 +30,7 @@ export default function ContactPage() {
 
   return (
     <div className="max-w-xl mx-auto py-16 px-4">
-      <h1 className="text-3xl font-bold mb-6">Kontakt oss</h1>
+      <h1 className="text-3xl font-semibold mb-6">Kontakt oss</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -62,7 +62,7 @@ export default function ContactPage() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
         >
           {status === 'loading' ? 'Sender...' : 'Send inn'}
         </button>

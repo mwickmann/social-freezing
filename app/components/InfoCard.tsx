@@ -6,9 +6,10 @@ interface InfoCardProps {
   title: string
   image: string
   href: string
+  description: string
 }
 
-export default function InfoCard({ title, image, href }: InfoCardProps) {
+export default function InfoCard({ title, image, href, description }: InfoCardProps) {
   return (
     <Link
       href={href}
@@ -24,7 +25,7 @@ export default function InfoCard({ title, image, href }: InfoCardProps) {
         />
       </div>
       <h3 className="text-xl mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-3">Social Freezing er din digitale eggbank.</p>
+      <p className="text-sm text-gray-700 mb-3">{description}</p>
       <span className="text-gray-400">Les mer</span>
     </Link>
   )
