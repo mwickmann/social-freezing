@@ -13,11 +13,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full flex items-center justify-between">
-      {/* Logo (venstre) */}
-      <Link href="/" className="text-2xl tracking-tight text-blue-400 whitespace-nowrap">
-        Social Freezing
-      </Link>
-
+  
       {/* Menyvalg (høyre) */}
       <ul className="hidden md:flex gap-8 items-center font-medium text-sm text-[#afb1ce]">
         <li>

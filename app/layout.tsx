@@ -22,20 +22,25 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="no" className={quicksand.variable}>
       <body className="flex min-h-screen flex-col bg-[#ffffff] text-[#afb1ce] font-heading">
-     <header className="sticky top-0 z-50 bg-white shadow-sm">
-  <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+ <header className="sticky top-0 z-50 bg-white shadow-sm">
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 min-h-[72px]">
+    {/* Logo */}
+    <Link href="/" className="text-2xl tracking-tight text-blue-400 whitespace-nowrap">
+      Social Freezing
+    </Link>
 
-    {/* Desktop meny */}
+    {/* Desktop-meny */}
     <div className="hidden md:block">
       <Navbar />
     </div>
 
-    {/* Mobilmeny */}
+    {/* Hamburger-meny */}
     <div className="md:hidden">
       <HamburgerMenu />
     </div>
   </div>
 </header>
+
 
         {/* MAIN CONTENT */}
         <main className="flex-1">{children}</main>
