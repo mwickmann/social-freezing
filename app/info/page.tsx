@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import ContentCard from '@/components/ContentCard'
 
 export default function SocialFreezingPage() {
