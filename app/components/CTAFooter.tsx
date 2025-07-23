@@ -11,7 +11,7 @@ export default function CtaFooter() {
       </p>
       <Link
         href="/contact"
-        className="inline-block bg-blue-400 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition"
+        className="inline-block bg-blue-400 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition"
       >
         Gå til kontaktskjema
       </Link>

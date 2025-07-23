@@ -23,13 +23,13 @@ export default function Navbar() {
           <Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link>
         </li>
         <li>
-          <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
+          <Link href="/info" className="hover:underline underline-offset-4">OM</Link>
         </li>
         <li>
           {userId ? (
             <Link
               href={`/users/${userId}`}
-              className="px-4 py-2 rounded-full bg-blue-400 text-white hover:bg-green-600 transition font-semibold"
+              className="px-4 py-2 rounded-full bg-blue-400 text-white hover:bg-blue-600 transition font-semibold"
             >
               MIN SIDE
             </Link>
