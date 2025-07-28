@@ -14,9 +14,10 @@ const quicksand = Quicksand({
 })
 
 export const metadata: Metadata = {
-  title: 'Social Freezing',
-  description: 'Informasjon og støtte rundt fertilitetsbevaring',
+  title: 'Social Freezing – Din digitale eggbank',
+  description: 'Utforsk fertilitetsbevaring på dine premisser. Finn klinikker, lær om eggfrysning og ta kontroll over din fremtid. Laget av kvinner, for kvinner.',
 }
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
