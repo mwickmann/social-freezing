@@ -67,8 +67,8 @@ export default function ContactPage() {
           {status === 'loading' ? 'Sender...' : 'Send inn'}
         </button>
 
-        {status === 'success' && <p className="text-green-600 mt-2">Meldingen er sendt!</p>}
-        {status === 'error' && <p className="text-red-600 mt-2">Noe gikk galt. Prøv igjen.</p>}
+        {status === 'success' && <p className="text-gray-600 mt-2">Meldingen er sendt! Du hører fra oss i løpet av 48 timer.</p>}
+        {status === 'error' && <p className="text-gray-600 mt-2">Noe gikk galt. Prøv igjen.</p>}
       </form>
     </div>
   )

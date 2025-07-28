@@ -14,16 +14,16 @@ export default function Navbar() {
   return (
     <nav className="w-full flex items-center justify-between">
   
-      {/* Menyvalg (høyre) */}
+      {/* Menyvalg */}
       <ul className="hidden md:flex gap-8 items-center font-medium text-sm text-[#afb1ce]">
         <li>
           <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
         </li>
         <li>
-          <Link href="/faq" className="hover:underline underline-offset-4">SPØRSMÅL & SVAR</Link>
+          <Link href="/contact" className="hover:underline underline-offset-4">KONTAKT</Link>
         </li>
         <li>
-          <Link href="/info" className="hover:underline underline-offset-4">OM</Link>
+          <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
         </li>
         <li>
           {userId ? (
