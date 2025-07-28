@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Link href="/" className="hover:underline">Hjem</Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:underline">Spørsmål & Svar</Link>
+                <Link href="/about" className="hover:underline">Om</Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:underline">Kontakt</Link>
