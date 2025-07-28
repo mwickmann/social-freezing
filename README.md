@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Social Freezing – MVP
 
-## Getting Started
+**Live Demo**: [https://social-freezing.vercel.app](https://social-freezing.vercel.app)
 
-First, run the development server:
+Et MVP-prosjekt for å teste ut en idé jeg har jobbet med:  
+En digital plattform der kvinner enkelt kan finne informasjon og kontakte klinikker som tilbyr eggfrysning. Jeg ønsket å bryne meg på teknologier jeg ikke har vært så mye borte i (PostgreSQL, Next.js, Vercel)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Formål
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Prosjektet er en enkel fullstack-applikasjon som gir innsikt i:
+- Hvordan bygge moderne Next.js-applikasjoner
+- Bruke Supabase med PostgreSQL og Prisma
+- Full CRUD-håndtering for klinikker og brukere
+- Lage et kontaktskjema med backend-håndtering
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 14/15** med App Router  
+- **TypeScript**
+- **Tailwind CSS**
+- **Supabase** (PostgreSQL database + auth + API)
+- **Prisma** (ORM for databasehåndtering)
+- **Vercel** (for hosting)
 
-## Learn More
+## Funksjonalitet
 
-To learn more about Next.js, take a look at the following resources:
+### Klinikkendepunkter
+- `POST /api/clinics` – opprette ny klinikk  
+- `GET /api/clinics` – hente alle klinikker  
+- `GET /api/clinics/:id` – hente klinikk basert på ID  
+- `PUT /api/clinics/:id` – oppdatere klinikkinformasjon
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Brukerendepunkter
+- `POST /api/users` – opprette ny bruker  
+- `GET /api/users/:id` – hente bruker basert på ID
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Kontaktskjema
+- `POST /api/contact` – sende inn kontaktskjema (lagres i databasen)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## NTBD:
+- Logge inn med to-trinn (ell helst vipps)
+- Tidy up the code
+- Klarere info om klinikkene, hvorfor man skal fryse ned, booking av timer 
+- Videreutvikle til en mobilapplikasjon via React Native
