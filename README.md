@@ -1,4 +1,4 @@
-# Social Freezing – MVP
+# ❄️ Social Freezing ❄️ – MVP (NB: Denne er under utvikling)
 
 **Live Demo**: [https://social-freezing.vercel.app](https://social-freezing.vercel.app)
 
