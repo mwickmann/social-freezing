@@ -3,7 +3,7 @@
 **Live Demo**: [https://social-freezing.vercel.app](https://social-freezing.vercel.app)
 
 Et MVP-prosjekt for å teste ut en idé jeg har jobbet med:  
-En digital plattform der kvinner enkelt kan finne informasjon og kontakte klinikker som tilbyr eggfrysning. Jeg ønsket å bryne meg på teknologier jeg ikke har vært så mye borte i (PostgreSQL, Next.js, Vercel)
+En digital plattform der kvinner enkelt kan finne informasjon og kontakte klinikker som tilbyr eggfrysning. Jeg ønsket å bryne meg på noen teknologier jeg ikke har vært så mye borte i (PostgreSQL, Next.js, Vercel)
 
 ## Formål
 
