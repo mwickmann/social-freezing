@@ -16,15 +16,15 @@ export default function HeroSection() {
           sizes="100vw"
         />
         <div className="absolute inset-0 flex flex-col justify-start items-start px-8 md:px-16 pt-30 md:pt-80">
-          <h1 className="text-3xl md:text-3xl text-gray-500 mb-4">
+          <h1 className="text-3xl md:text-3xl text-gray-700 mb-4">
             Velkommen til din digitale eggbank!
           </h1>
-          <p className="text-lg md:text-m text-gray-500 mb-6 max-w-xl">
+          <p className="text-lg md:text-m text-gray-700 mb-6 max-w-xl">
             Ta kontroll over egen fertilitet – få innsikt, finn klinikker og lær mer om eggfrysning.
           </p>
           <Link
             href="/signup"
-            className="inline-block bg-white text-gray-400 px-6 py-3 rounded-full hover:bg-blue-100 transition"
+            className="inline-block bg-white text-gray-700 px-6 py-3 rounded-full hover:bg-blue-100 transition"
           >
             Kom i gang
           </Link>

@@ -22,7 +22,7 @@ export default function EmployeeCard({ name, title, image, description }: Employ
         />
       </div>
       <h3 className="text-xl mb-1 text-blue-500 font-semibold">{name}</h3>
-      <p className="text-blue-400 mb-3 font-medium">{title}</p>
+      <p className="text-blue-600 mb-3 font-medium">{title}</p>
       <p className="text-sm text-gray-700">{description}</p>
     </div>
   )

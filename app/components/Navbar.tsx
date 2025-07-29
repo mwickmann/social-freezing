@@ -15,34 +15,35 @@ export default function Navbar() {
     <nav className="w-full flex items-center justify-between">
   
       {/* Menyvalg */}
-      <ul className="hidden md:flex gap-8 items-center font-medium text-sm text-[#afb1ce]">
-        <li>
-          <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
-        </li>
-        <li>
-          <Link href="/contact" className="hover:underline underline-offset-4">KONTAKT</Link>
-        </li>
-        <li>
-          <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
-        </li>
-        <li>
-          {userId ? (
-            <Link
-              href={`/users/${userId}`}
-              className="px-4 py-2 rounded-full bg-blue-400 text-white hover:bg-blue-600 transition font-semibold"
-            >
-              MIN SIDE
-            </Link>
-          ) : (
-            <Link
-              href="/login"
-              className="px-4 py-2 rounded-full bg-blue-200 text-white hover:bg-blue-800 transition font-semibold"
-            >
-              LOGG INN
-            </Link>
-          )}
-        </li>
-      </ul>
+     <ul className="hidden md:flex gap-8 items-center font-medium text-base text-gray-700">
+  <li>
+    <Link href="/" className="hover:underline underline-offset-4">HJEM</Link>
+  </li>
+  <li>
+    <Link href="/contact" className="hover:underline underline-offset-4">KONTAKT</Link>
+  </li>
+  <li>
+    <Link href="/about" className="hover:underline underline-offset-4">OM</Link>
+  </li>
+  <li>
+    {userId ? (
+      <Link
+        href={`/users/${userId}`}
+        className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition font-semibold"
+      >
+        MIN SIDE
+      </Link>
+    ) : (
+      <Link
+        href="/login"
+        className="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition font-semibold"
+      >
+        LOGG INN
+      </Link>
+    )}
+  </li>
+</ul>
+
     </nav>
   )
 }
