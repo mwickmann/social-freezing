@@ -89,7 +89,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         {mode === 'signup' ? 'Registrer deg' : 'Logg inn'}
       </button>
 
-      <div className="mt-4 text-center text-sm text-gray-600">
+      <div className="mt-4 text-center text-m text-gray-600">
         {mode === 'signup' ? (
           <>
             Allerede bruker?{' '}

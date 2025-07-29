@@ -15,7 +15,7 @@ export default function HeroSection() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 flex flex-col justify-start items-start px-8 md:px-16 pt-30 md:pt-80">
+        <div className="absolute inset-0 flex flex-col justify-center items-start px-8 md:px-16">
           <h1 className="text-3xl md:text-3xl text-gray-700 mb-4">
             Velkommen til din digitale eggbank!
           </h1>
