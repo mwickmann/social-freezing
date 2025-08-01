@@ -37,7 +37,8 @@ Prosjektet er en enkel fullstack-applikasjon som gir innsikt i:
 ### Kontaktskjema
 - `POST /api/contact` – sende inn kontaktskjema (lagres i databasen)
 
-## NTBD:
+## TODO:
+- Koble kontaktskjema til Python
 - Logge inn med to-trinn (ell helst vipps)
 - Tidy up the code
 - Klarere info om klinikkene, hvorfor man skal fryse ned, booking av timer 
